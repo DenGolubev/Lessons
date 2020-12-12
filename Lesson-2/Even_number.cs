@@ -1,0 +1,25 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Lesson_2
+{
+    class Even_number
+    {
+        private int Number { get; set; }
+        public bool Even_parity { get; private set; }
+
+        public bool even_number()
+        {
+            Console.WriteLine("Введите любое число:\n");
+            Number = Convert.ToInt32(Console.ReadLine());
+            if (Number == 0) Console.WriteLine("Вы ввели ноль\n");
+            else if (Number % 2 == 0) Even_parity = true;
+            return Even_parity;
+        }
+
+
+    }
+}
