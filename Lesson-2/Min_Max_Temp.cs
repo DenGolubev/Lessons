@@ -18,7 +18,7 @@ namespace Lesson_2
             string Temp1 = Console.ReadLine();
             foreach(char a in Temp1)
             {
-                if(a < '0' || a > '9')
+                if(char.IsLetter(a))
                 {
                     Console.WriteLine("Вы ввели буквы вместо цифр при вводе минимальной температуры, попробуйте еще раз\n");
                     Temp1 = Console.ReadLine();
@@ -36,7 +36,7 @@ namespace Lesson_2
             string Temp2 = Console.ReadLine();
             foreach (char a in Temp2)
             {
-                if (a < '0' || a > '9')
+                if (char.IsLetter(a))
                 {
                     Console.WriteLine("Вы ввели буквы вместо цифр при вводе максимальной температуры, попробуйте еще раз\n");
                     Temp2 = Console.ReadLine();
