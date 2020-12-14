@@ -20,7 +20,7 @@ namespace Lesson_2
             //-----------------------------------------------------------------------------------
             //
             Console.WriteLine("\nУпражнение 2\n");
-            Serial_number_month month = new Serial_number_month();
+            SerialNumberMonth month = new SerialNumberMonth();
             string m = month.Number_of_month();
             Console.WriteLine("\nВы выбрали: " + m);
             Console.WriteLine(new string('-', 50));

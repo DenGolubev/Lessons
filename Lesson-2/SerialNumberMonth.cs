@@ -3,7 +3,7 @@
 
 namespace Lesson_2
 {
-    class Serial_number_month
+    class SerialNumberMonth
     {
         private int number_month { get; set; }
 
