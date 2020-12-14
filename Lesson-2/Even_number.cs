@@ -11,7 +11,11 @@ namespace Lesson_2
         {
             Console.WriteLine("Введите любое число:\n");
             Number = Convert.ToInt32(Console.ReadLine());
-            if (Number == 0) Console.WriteLine("Вы ввели ноль\n");
+            if (Number == 0) 
+            {
+                Console.WriteLine("Вы ввели ноль\n");
+                even_number();
+            } 
             else if (Number % 2 == 0) Even_parity = true;
             return Even_parity;
         }
