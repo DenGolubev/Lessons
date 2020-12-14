@@ -15,9 +15,41 @@ namespace Lesson_2
         public void average_Temp()
         {
             Console.WriteLine("Введите минимальную суточную температуру :");
-            min_Temp = Convert.ToDouble(Console.ReadLine());
+            string Temp1 = Console.ReadLine();
+            foreach(char a in Temp1)
+            {
+                if(a < '0' || a > '9')
+                {
+                    Console.WriteLine("Вы ввели буквы вместо цифр при вводе минимальной температуры, попробуйте еще раз\n");
+                    Temp1 = Console.ReadLine();
+                }
+            }
+            while (string.IsNullOrEmpty(Temp1))
+            {
+                Console.WriteLine("Вы ошиблись при вводе минимальной температуры, попробуйте еще раз\n");
+                Temp1 = Console.ReadLine();
+                
+            }
+            min_Temp = Convert.ToDouble(Temp1);
+
             Console.WriteLine("Введите максимальную суточную температуру:");
-            max_Temp = Convert.ToDouble(Console.ReadLine());
+            string Temp2 = Console.ReadLine();
+            foreach (char a in Temp2)
+            {
+                if (a < '0' || a > '9')
+                {
+                    Console.WriteLine("Вы ввели буквы вместо цифр при вводе максимальной температуры, попробуйте еще раз\n");
+                    Temp2 = Console.ReadLine();
+                }
+            }
+            while (string.IsNullOrEmpty(Temp2))
+            {
+                Console.WriteLine("Вы ошиблись при вводе максимальной температуры, попробуйте еще раз\n");
+                Temp2 = Console.ReadLine();
+                
+            }
+            max_Temp = Convert.ToDouble(Temp2);
+
             
         }
     }
