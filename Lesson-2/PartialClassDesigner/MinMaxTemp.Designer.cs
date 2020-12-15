@@ -6,30 +6,32 @@ namespace Lesson_2
     {
         private string MinTemp { get; set; }
         private string MaxTemp { get; set; }
+        private bool Cheking { get; set; }
 
-        private string CheckConsoleEnter(string a)
+        private bool CheckConsoleEnter(string a, string b)
         {
-            label1: // Необходимо уйти от оператора goto
-            a = Console.ReadLine();
-            char[] variable = a.ToCharArray();
-            if (a.Length < 1)
+            Cheking = true;
+            char[] variable_a = a.ToCharArray();
+            char[] variable_b = b.ToCharArray();
+            if (a.Length < 1 || b.Length < 1)
             {
-                Console.WriteLine("Вы допустили ошибку ввода, попробуйте еще раз:\n");
-                goto label1; // Необходимо уйти от оператора goto
+                Console.WriteLine("Вы допустили ошибку ввода и просто нажали Enter. Попробуйте еще раз:\n");
+                Cheking = false;
             }
             else
             {
-                foreach (char c in variable)
+                foreach (char i in variable_a)
                 {
-                    if (char.IsLetter(c))
+                    foreach(char y in variable_b)
+                    if (char.IsLetter(i) || char.IsLetter(y))
                     {
-                        Console.WriteLine("Вы допустили ошибку ввода, попробуйте еще раз:\n");
-                        goto label1; // Необходимо уйти от оператора goto
+                        Console.WriteLine("Вы допустили ошибку ввода и ввели букву. Попробуйте еще раз:\n");
+                        Cheking = false;
                     }
 
                 }
             }
-            return a;
+            return Cheking;
         }
 
         private double AverTemp(string a, string b)

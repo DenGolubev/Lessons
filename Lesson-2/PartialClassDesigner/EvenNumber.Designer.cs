@@ -15,17 +15,15 @@ namespace Lesson_2
             {
                 Console.WriteLine("Вы допустили ошибку ввода, попробуйте еще раз:\n");
                 Cheking = false;
-                
             }
             else
             {
                 foreach (char c in variable)
                 {
-                    if (c == 48) //Ноль в UniCode = 48
+                    if (c == 48 || char.IsLetter(c)) //Ноль в UniCode = 48
                     {
-                        Console.WriteLine("Вы ввели НОЛЬ, попробуйте еще раз:\n");
+                        Console.WriteLine("Вы ввели НОЛЬ или букву, попробуйте еще раз:\n");
                         Cheking = false;
-                       
                     }
                 }
             }
@@ -34,7 +32,7 @@ namespace Lesson_2
         }
 
 
-        public bool EnterNumber(string a)
+        public bool EnterNumberCheck(string a)
         {
             if(Cheking == true)
             {

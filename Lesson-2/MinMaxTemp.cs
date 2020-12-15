@@ -8,14 +8,24 @@ namespace Lesson_2
         public void EnterTemp()
         {
             Console.WriteLine("Введите минимальную суточную температуру :");
-            MinTemp = CheckConsoleEnter(MinTemp);
+            MinTemp = Console.ReadLine();
             Console.WriteLine("Введите максимальную суточную температуру:");
-            MaxTemp = CheckConsoleEnter(MaxTemp);
+            MaxTemp = Console.ReadLine();
+            AveregeTemp();
         }
 
-        public void AveregeTemp()
+        public double AveregeTemp()
         {
-            Console.WriteLine("Среднесуточная температура = {0} градусов цельсия", AverTemp(MinTemp, MaxTemp));
+            while(CheckConsoleEnter(MinTemp, MaxTemp) == false)
+            {
+                Console.WriteLine("Введите минимальную суточную температуру :");
+                MinTemp = Console.ReadLine();
+                Console.WriteLine("Введите максимальную суточную температуру:");
+                MaxTemp = Console.ReadLine();
+            }
+            double at = AverTemp(MinTemp, MaxTemp);
+            Console.WriteLine("Среднесуточная температура = {0} градусов цельсия", at);
+            return at;
         }
 
     }
