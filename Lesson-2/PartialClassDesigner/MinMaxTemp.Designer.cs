@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Lesson_2
 {
@@ -13,13 +9,13 @@ namespace Lesson_2
 
         private string CheckConsoleEnter(string a)
         {
-            label1:
+            label1: // Необходимо уйти от оператора goto
             a = Console.ReadLine();
             char[] variable = a.ToCharArray();
             if (a.Length < 1)
             {
                 Console.WriteLine("Вы допустили ошибку ввода, попробуйте еще раз:\n");
-                goto label1;
+                goto label1; // Необходимо уйти от оператора goto
             }
             else
             {
@@ -28,7 +24,7 @@ namespace Lesson_2
                     if (char.IsLetter(c))
                     {
                         Console.WriteLine("Вы допустили ошибку ввода, попробуйте еще раз:\n");
-                        goto label1;
+                        goto label1; // Необходимо уйти от оператора goto
                     }
 
                 }

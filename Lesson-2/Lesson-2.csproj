@@ -46,6 +46,7 @@
     <Compile Include="Even_number.cs" />
     <Compile Include="MinMaxTemp.cs" />
     <Compile Include="PartialClassDesigner\MinMaxTemp.Designer.cs" />
+    <Compile Include="PartialClassDesigner\SerialNumberMonth.Designer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SerialNumberMonth.cs" />

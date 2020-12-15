@@ -18,11 +18,11 @@ namespace Lesson_2
             //
             //-----------------------------------------------------------------------------------
             //
-            //Console.WriteLine("\nУпражнение 2\n");
-            //SerialNumberMonth month = new SerialNumberMonth();
-            //string m = month.Number_of_month();
-            //Console.WriteLine("\nВы выбрали: " + m);
-            //Console.WriteLine(new string('-', 50));
+            Console.WriteLine("\nУпражнение 2\n");
+            SerialNumberMonth month = new SerialNumberMonth();
+            string m = month.NumberOfMonth();
+            Console.WriteLine("\nВы выбрали: " + m);
+            Console.WriteLine(new string('-', 50));
             ////
             ////-----------------------------------------------------------------------------------
             ////
