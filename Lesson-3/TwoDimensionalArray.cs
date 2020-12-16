@@ -29,9 +29,9 @@ namespace Lesson_3
                 {
                     if (i == y)
                     {
-                        Console.Write(PhoneDirectory[i, y]);
+                        Console.Write(PhoneDirectory[i, y] + "\t");
                     }
-                    else Console.Write(" ");
+                    else Console.Write(" \t");
                     
                 }
                 Console.WriteLine();
