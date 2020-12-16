@@ -11,8 +11,10 @@ namespace Lesson_3
         
         static void Main(string[] args)
         {
-            TwoDimensionalArray twoArray = new TwoDimensionalArray();
-            twoArray.OutputElements();
+            //TwoDimensionalArray twoArray = new TwoDimensionalArray();
+            PhoneDirectory phoneDirectory = new PhoneDirectory();
+            //twoArray.OutputElements();
+            phoneDirectory.AddUser();
         }
     }
 }
