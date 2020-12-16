@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Lesson_3
 {
     class TwoDimensionalArray
     {
-        private int[,] PhoneDirectory = new int[5,5];
+        private int[,] PhoneDirectory = new int[10,10];
 
         private void InputElements()
         {
@@ -33,11 +29,12 @@ namespace Lesson_3
                 {
                     if (i == y)
                     {
-                        Console.Write("{0}\t",PhoneDirectory[i, y]);
+                        Console.Write(PhoneDirectory[i, y]);
                     }
+                    else Console.Write(" ");
                     
                 }
-
+                Console.WriteLine();
             }
             Console.ReadKey();
         }
