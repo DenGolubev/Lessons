@@ -5,21 +5,22 @@ namespace Lesson_3
 {
     class PhoneDirectory
     {
-        string[,] PhoneBook = new string[5, 2];
-        string[] NameBook = new string[5];
-        string[] NumberBook = new string[5];
-
+        readonly string[,] PhoneBook = new string[5, 2];
+        
         public void MyMenu()
         {
-            Console.WriteLine("Выберите пункт меню:");
-            Console.WriteLine("Добавить контакт - 1\nПосмотреть контакты - 2\nВыйти из приложения - 3");
+            Console.WriteLine("Записная книжка\n");
+            Console.WriteLine("Выберите пункт меню и нажмите Enter:\n");
+            Console.WriteLine("Добавить контакт - 1\nПосмотреть контакты - 2\nВыйти из приложения - 3\n");
             int i = int.Parse(Console.ReadLine());
             switch (i)
             {
                 case 1:
+                    Console.Clear();
                     AddUser();
                     break;
                 case 2:
+                    Console.Clear();
                     OutUser();
                     break;
                 case 3:
@@ -27,34 +28,52 @@ namespace Lesson_3
                     break;
                 default:
                     Console.WriteLine("Вы ввели не правильную цифру");
+                    MyMenu();
                     break;
             }
         }
         public void AddUser()
-        {
-            Console.WriteLine("Введите имя контакта:");
-            string name = Console.ReadLine();
-            Console.WriteLine("Введите номер телефона:");
-            string phone = Console.ReadLine();
-            for (int y   = 0; y < PhoneBook.GetLength(0); y++)
+        {            
+            for (int y = 0; y < PhoneBook.GetLength(0); y++) //строки
             {
-                NameBook[y] = name;
-                NumberBook[y] = phone;
+                for (int x = 0; x < PhoneBook.GetLength(1); x++) //столбцы
+                {
+                    Console.Write(" Y: " + y + " X: " + x);
+                    if (x == 1)
+                    {
+                        Console.WriteLine("\nВведите номер телефона:");
+                        PhoneBook[y, x] = Console.ReadLine();
+                    }
+                    else
+                    {
+                        Console.WriteLine("\nВведите имя контакта:");
+                        PhoneBook[y, x] = Console.ReadLine();
+                    }
+                    
+                }
+                Console.Clear();
+                Console.WriteLine();
+                MyMenu();
+               
             }
+            Console.ReadKey();
             OutUser();
         }
 
         public void OutUser()
         {
-            foreach (var name in NameBook)
+
+            for (int i = 0; i < PhoneBook.GetLength(0); i++)
             {
-                foreach (var number in NumberBook)
+                for (int y = 0; y < PhoneBook.GetLength(1); y++)
                 {
-                    Console.Write("Имя {0} / Телефон {1}", name, number);
-                    Console.ReadKey();
+                    Console.Write(PhoneBook[i,y]+"\t");
+                    Console.WriteLine();
                 }
+                Console.WriteLine();
             }
-            
+            MyMenu();
+
         }
     }
 }

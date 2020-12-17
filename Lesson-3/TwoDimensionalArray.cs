@@ -37,6 +37,7 @@ namespace Lesson_3
                 Console.WriteLine();
             }
             Console.ReadKey();
+            Console.Clear();
         }
     }
 }
