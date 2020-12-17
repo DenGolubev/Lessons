@@ -18,16 +18,21 @@ namespace Lesson_3
             {
                 NameBook[y] = name;
                 NumberBook[y] = phone;
-                Console.Write("Имя {0} / Телефон {1}", NameBook[y], NumberBook[y]);
-                Console.ReadKey();
-                break;
-            }     
-            
+            }
+            OutUser();
         }
 
         public void OutUser()
         {
-
+            foreach (var name in NameBook)
+            {
+                foreach (var number in NumberBook)
+                {
+                    Console.Write("Имя {0} / Телефон {1}", name, number);
+                    Console.ReadKey();
+                }
+            }
+            
         }
     }
 }
