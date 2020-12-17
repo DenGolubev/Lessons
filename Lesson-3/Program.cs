@@ -11,10 +11,12 @@ namespace Lesson_3
         
         static void Main(string[] args)
         {
-            TwoDimensionalArray twoArray = new TwoDimensionalArray();
-            twoArray.OutputElements();
-            PhoneDirectory phoneDirectory = new PhoneDirectory();
-            phoneDirectory.MyMenu();
+            //TwoDimensionalArray twoArray = new TwoDimensionalArray();
+            //twoArray.OutputElements();
+            //PhoneDirectory phoneDirectory = new PhoneDirectory();
+            //phoneDirectory.MyMenu();
+            MirrorReflection reflection = new MirrorReflection();
+            reflection.inputReflection();
         }
     }
 }
