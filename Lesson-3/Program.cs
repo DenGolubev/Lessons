@@ -15,8 +15,10 @@ namespace Lesson_3
             //twoArray.OutputElements();
             //PhoneDirectory phoneDirectory = new PhoneDirectory();
             //phoneDirectory.MyMenu();
-            MirrorReflection reflection = new MirrorReflection();
-            reflection.inputReflection();
+            //MirrorReflection reflection = new MirrorReflection();
+            //reflection.inputReflection();
+            SeaBattle seaBattle = new SeaBattle();
+            seaBattle.MyMenu();
         }
     }
 }
