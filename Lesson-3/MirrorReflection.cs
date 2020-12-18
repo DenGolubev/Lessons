@@ -8,6 +8,7 @@ namespace Lesson_3
 {
     class MirrorReflection
     {
+        StartMenu startMenu = new StartMenu();
         private string Variable { get; set; }
         public void inputReflection()
         {
@@ -26,6 +27,7 @@ namespace Lesson_3
             Variable = string.Concat(Reflection);
             Console.WriteLine("А теперь это слово наоборот - {0}", Variable);
             Console.ReadKey();
+            startMenu.MyStartMenu();
         }
     }
 }

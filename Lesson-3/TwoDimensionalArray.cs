@@ -4,6 +4,7 @@ namespace Lesson_3
 {
     class TwoDimensionalArray
     {
+        StartMenu startMenu = new StartMenu();
         private int[,] PhoneDirectory = new int[10,10];
 
         private void InputElements()
@@ -38,6 +39,7 @@ namespace Lesson_3
             }
             Console.ReadKey();
             Console.Clear();
+            startMenu.MyStartMenu();
         }
     }
 }

@@ -5,13 +5,14 @@ namespace Lesson_3
 {
     class PhoneDirectory
     {
+        StartMenu startMenu = new StartMenu();
         readonly string[,] PhoneBook = new string[5, 2];
         
         public void MyMenu()
         {
             Console.WriteLine("Записная книжка\n");
             Console.WriteLine("Выберите пункт меню и нажмите Enter:\n");
-            Console.WriteLine("Добавить контакт - 1\nПосмотреть контакты - 2\nВыйти из приложения - 3\n");
+            Console.WriteLine("Добавить контакт - 1\nПосмотреть контакты - 2\nВыйти из приложения - 3\nВыйти в главное меню - 4\n");
             int i = int.Parse(Console.ReadLine());
             switch (i)
             {
@@ -25,6 +26,10 @@ namespace Lesson_3
                     break;
                 case 3:
                     Environment.Exit(3);
+                    break;
+                case 4:
+                    Console.Clear();
+                    startMenu.MyStartMenu();
                     break;
                 default:
                     Console.WriteLine("Вы ввели не правильную цифру");
