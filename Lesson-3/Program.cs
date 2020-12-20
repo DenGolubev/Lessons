@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Lesson_3
 {
@@ -11,8 +7,10 @@ namespace Lesson_3
         
         static void Main(string[] args)
         {
-            StartMenu startMenu = new StartMenu();
-            startMenu.MyStartMenu();
+            //StartMenu startMenu = new StartMenu();
+            //startMenu.MyStartMenu();
+            SeaBattle battle = new SeaBattle();
+            battle.Coordinates();
             Console.ReadKey();
         }
         

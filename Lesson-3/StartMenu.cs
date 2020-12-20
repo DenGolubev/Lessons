@@ -30,7 +30,7 @@ namespace Lesson_3
                     break;
                 case 4:
                     SeaBattle seaBattle = new SeaBattle();
-                    seaBattle.MyMenu();
+                    //seaBattle.MyMenu();
                     break;
             }
         }
