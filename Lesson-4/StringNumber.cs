@@ -4,9 +4,9 @@ namespace Lesson_4
 {
     class StringNumber
     {
-        string Number { get; set; } = null;
-        char[] arrayChar;
-        int counter { get; set; } = 0;
+        private string Number { get; set; } = null;
+        private char[] arrayChar;
+        private int Counter { get; set; } = 0;
         
 
 
@@ -14,18 +14,19 @@ namespace Lesson_4
         {
             Console.WriteLine("Введите числа через пробел и нажмите Enter");
             Number = Console.ReadLine();
-            arrayChar = new char[] { ' ', ',', '.' };
+            arrayChar = new char[] { ' ', ',', '.' }; // Данные знаки исключаем из массива
             OutputSum();
+            Console.WriteLine(Counter); 
             Console.ReadKey();
         }
-        public void OutputSum()
+        private int OutputSum()
         {
-            string[] arrayNumber = Number.Split(arrayChar, StringSplitOptions.RemoveEmptyEntries);
+            string[] arrayNumber = Number.Split(arrayChar, StringSplitOptions.RemoveEmptyEntries); //Делаем из строки - подстроки, разбиваем строку 
             for (int i = 0; i < arrayNumber.Length; i++)
             {
-                counter = counter + int.Parse(arrayNumber[i]);
+                Counter = Counter + int.Parse(arrayNumber[i]); // Ну и соответственно преобразуем в целое число и складываем
             }
-            Console.WriteLine("Результат равен {0}", counter);
+            return Counter;
          }
     }
 }

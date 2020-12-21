@@ -9,9 +9,11 @@ namespace Lesson_4
         {
             AllExercises allExercises = new AllExercises();
             GetFullName fullName = new GetFullName();
-            fullName.PrintUser();
+            //fullName.PrintUser();
             StringNumber stringNumber = new StringNumber();
-            stringNumber.InputNumber();
+            Seasons seasons = new Seasons();
+            //stringNumber.InputNumber();
+            seasons.InputNumber();
         }
     }
 }
