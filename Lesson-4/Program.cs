@@ -12,7 +12,8 @@ namespace Lesson_4
         static void Main(string[] args)
         {
             AllExercises allExercises = new AllExercises();
-            allExercises.Exercises();
+            GetFullName fullName = new GetFullName();
+            fullName.PrintUser();
         }
     }
 }
