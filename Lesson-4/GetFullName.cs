@@ -32,7 +32,7 @@ namespace Lesson_4
             FIO.Add(counter, l_name + " " + f_name + " " + m_name);
             counter++;
             Console.WriteLine(new string('-', 50));
-            Console.WriteLine("Пользователь {0} {1} {2} - {3}", l_name, f_name, m_name, counter);
+            Console.WriteLine("Пользователь {0} {1} {2}", l_name, f_name, m_name);
             Console.WriteLine(new string('-', 50));
             allUser();
             PrintUser();

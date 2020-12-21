@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Lesson_4
 {
@@ -14,6 +10,8 @@ namespace Lesson_4
             AllExercises allExercises = new AllExercises();
             GetFullName fullName = new GetFullName();
             fullName.PrintUser();
+            StringNumber stringNumber = new StringNumber();
+            stringNumber.InputNumber();
         }
     }
 }
