@@ -46,7 +46,7 @@ namespace Lesson_4
             {
                 season = Season.Autumn;
             }
-            Console.WriteLine($"Вы выбрали {season} месяц");
+            Console.WriteLine($"Вы выбрали {season} сезон");
             Console.ReadKey();
         }
 

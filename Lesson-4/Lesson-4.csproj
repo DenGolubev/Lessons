@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AllExercises.cs" />
+    <Compile Include="Fibonacci.cs" />
     <Compile Include="GetFullName.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

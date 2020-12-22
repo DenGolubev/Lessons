@@ -7,13 +7,10 @@ namespace Lesson_4
         
         static void Main(string[] args)
         {
-            AllExercises allExercises = new AllExercises();
-            GetFullName fullName = new GetFullName();
-            //fullName.PrintUser();
-            StringNumber stringNumber = new StringNumber();
-            Seasons seasons = new Seasons();
-            //stringNumber.InputNumber();
-            seasons.InputNumber();
+            Console.WriteLine("Выберите упражнение:\n\nУпражнение 1 - клавиша 1\nУпражнение 2 - клавиша 2\nУпражнение 3 - клавиша 3\nУпражнение 4 - клавиша 4");
+            AllExercises exercises = new AllExercises();
+            exercises.MyMenu(int.Parse(Console.ReadLine()));
+            Console.ReadKey();
         }
     }
 }

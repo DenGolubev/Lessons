@@ -1,28 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace Lesson_4
 {
     class AllExercises
     {
-        string exercise { get; set; }
-        GetFullName fullName = new GetFullName();
-        public enum Menu
+        
+        public void MyMenu(int selex)
         {
-            Exercises1 = 1,
-            Exercises2 = 2,
-            Exercises3 = 3,
-            Exercises4 = 4
+            switch (selex) 
+            {
+                case 1:
+                    GetFullName fullName = new GetFullName();
+                    fullName.PrintUser();
+                    break;
+                case 2:
+                    StringNumber stringNumber = new StringNumber();
+                    stringNumber.InputNumber();
+                    break;
+                case 3:
+                    Seasons seasons = new Seasons();
+                    seasons.InputNumber();
+                    break;
+                case 4:
+                    Fibonacci fibonacci = new Fibonacci();
+                    fibonacci.EnterNumber();
+                    break;
+            }
+
+
         }
-        public string Exercises(Menu menu)
-        {
-            if (menu == Menu.Exercises1)  exercise = "Упражнение №1";
-            fullName.PrintUser();
-            return exercise;
-        }
+        
 
         
 
