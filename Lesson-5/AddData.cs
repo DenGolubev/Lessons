@@ -1,26 +1,22 @@
 ﻿using System;
-using System.IO;
+
 
 namespace Lesson_5
 {
-    class MyFile
+    class AddData
     {
         private string PathFile { get; set; } = AppContext.BaseDirectory;
-        private string NameFile { get; set; } = "Test.txt";
+        private string NameFile { get; set; } = "startup.txt";
         FileMethod fileMethod = new FileMethod();
-        public void WriteFile()
+        public void AppendFile()
         {
+            
             string FullPath = fileMethod.GetFullPath(PathFile, NameFile);
             fileMethod.CreateFile(FullPath);
+            fileMethod.AddTimeFile(FullPath);
             string mytext = fileMethod.InputFile();
-            fileMethod.RecFile(FullPath, mytext);
-             
-        }
+            fileMethod.AddinFile(FullPath, " - " + mytext + Environment.NewLine) ;
 
+        }
     }
 }
-
-
-
-
- 

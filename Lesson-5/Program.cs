@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace Lesson_5
 {
     class Program
@@ -11,7 +6,9 @@ namespace Lesson_5
         static void Main(string[] args)
         {
             MyFile file = new MyFile();
-            file.InputLineFile();
+            AddData addTime = new AddData();
+            //file.WriteFile();
+            addTime.AppendFile();
         }
     }
 }
