@@ -5,69 +5,50 @@ namespace Lesson_5
 {
     class FileMethod
     {
-        private string FullPath { get; set; }
-                
-        /// <summary>
-        /// Метод полного пути к файлу
-        /// </summary>
-        /// <param name="pathfile"></param>
-        /// <param name="namefile"></param>
-        /// <returns></returns>
+        FileStream file;
+         private string FullPath { get; set; }
+
         public string GetFullPath(string pathfile, string namefile)
         {
             FullPath = Path.Combine(pathfile, namefile);
             return FullPath;
         }
-        /// <summary>
-        /// Метод создания файла
-        /// </summary>
-        /// <param name="fullpath"></param>
-        public void CreateFile(string fullpath)
+        public void CreateFile(string namefile, string fullpath)
         {
             if (!File.Exists(fullpath))
             {
-                File.Create(fullpath).Close();
+                using (file = new FileStream(namefile, FileMode.CreateNew))
+                {
+                    Console.WriteLine($"Файл {namefile} создан по адресу: {fullpath}");
+                }
             }
-            else Console.WriteLine("Файл уже создан");
-        }
-
-        /// <summary>
-        /// Метод получения строки и присвоение к переменной
-        /// </summary>
-        /// <returns></returns>
-        public string InputFile()
+         }
+        public void WriteFile(string fullpath, string inputstring)
         {
-            Console.WriteLine("Введите строку для записи в файл:");
-            string InFile = Console.ReadLine();
-            return InFile;
-        }
-
-        /// <summary>
-        /// Метод записи в файл, каждый раз новый файл и новая запись
-        /// </summary>
-        /// <param name="fullpath"></param>
-        /// <param name="inputdata"></param>
-        public void RecFile(string fullpath, string inputdata)
+            using (file = new FileStream(fullpath, FileMode.Append))
+            {
+                byte[] array = System.Text.Encoding.Default.GetBytes(inputstring + "\r\n");
+                file.Write(array, 0, array.Length);
+            }
+              
+         }
+        public string ReadFile(string fullpath)
         {
-            File.WriteAllText(fullpath, inputdata);
+            string textinfile = null;
+            using (file = File.OpenRead(fullpath))
+            {
+                byte[] array = new byte[file.Length];
+                file.Read(array, 0, array.Length);
+                textinfile = System.Text.Encoding.Default.GetString(array);
+            }
+            Console.Clear();
+            return textinfile;
         }
-
-        /// <summary>
-        /// Метод добавления записи в файл без перезаписи
-        /// </summary>
-        /// <param name="fullpath"></param>
-        /// <param name="inputdata"></param>
-        public void AddinFile(string fullpath, string inputdata)
-        {
-            File.AppendAllText(fullpath, inputdata);
-            Console.WriteLine();
-        }
-
         public void AddTimeFile(string fullpath)
         {
             DateTime timeDateAccess = File.GetLastAccessTime(fullpath);
             string a = timeDateAccess.ToShortTimeString();
-            File.AppendAllText(fullpath, a + Environment.NewLine);
+            File.AppendAllText(fullpath, "\r\n" + a + " - ");
             Console.WriteLine();
         }
     }

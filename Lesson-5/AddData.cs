@@ -1,6 +1,5 @@
 ﻿using System;
 
-
 namespace Lesson_5
 {
     class AddData
@@ -10,12 +9,12 @@ namespace Lesson_5
         FileMethod fileMethod = new FileMethod();
         public void AppendFile()
         {
-            
+            Console.WriteLine("Введите текст:");
+            string mytext = Console.ReadLine();
             string FullPath = fileMethod.GetFullPath(PathFile, NameFile);
-            fileMethod.CreateFile(FullPath);
+            fileMethod.CreateFile(NameFile, FullPath);
             fileMethod.AddTimeFile(FullPath);
-            string mytext = fileMethod.InputFile();
-            fileMethod.AddinFile(FullPath, " - " + mytext + Environment.NewLine) ;
+            fileMethod.WriteFile(FullPath, mytext) ;
 
         }
     }

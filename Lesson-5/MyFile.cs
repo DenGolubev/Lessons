@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 
 namespace Lesson_5
 {
@@ -10,12 +9,14 @@ namespace Lesson_5
         FileMethod fileMethod = new FileMethod();
         public void WriteFile()
         {
+            Console.WriteLine("Введите текст:");
+            string mytext = Console.ReadLine();
             string FullPath = fileMethod.GetFullPath(PathFile, NameFile);
-            fileMethod.CreateFile(FullPath);
-            string mytext = fileMethod.InputFile();
-            fileMethod.RecFile(FullPath, mytext);
-             
-        }
+            fileMethod.CreateFile(NameFile, FullPath);
+            fileMethod.WriteFile(FullPath, mytext);
+            Console.WriteLine(fileMethod.ReadFile(FullPath));
+            Console.ReadKey();
+         }
 
     }
 }

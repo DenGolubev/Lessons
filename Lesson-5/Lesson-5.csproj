@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="AddData.cs" />
     <Compile Include="FileMethod.cs" />
+    <Compile Include="MyBinFile.cs" />
     <Compile Include="MyFile.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

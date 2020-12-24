@@ -7,8 +7,10 @@ namespace Lesson_5
         {
             MyFile file = new MyFile();
             AddData addTime = new AddData();
+            MyBinFile binFile = new MyBinFile();
             //file.WriteFile();
-            addTime.AppendFile();
+            //addTime.AppendFile();
+            binFile.BinFile();
         }
     }
 }
