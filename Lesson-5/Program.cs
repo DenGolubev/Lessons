@@ -8,9 +8,12 @@ namespace Lesson_5
             MyFile file = new MyFile();
             AddData addTime = new AddData();
             MyBinFile binFile = new MyBinFile();
+            DirectoryTree tree = new DirectoryTree();
             //file.WriteFile();
             //addTime.AppendFile();
-            binFile.BinFile();
+            //binFile.BinFile();
+            
+            tree.MyDir();
         }
     }
 }

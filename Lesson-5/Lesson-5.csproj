@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddData.cs" />
+    <Compile Include="DirectoryTree.cs" />
     <Compile Include="FileMethod.cs" />
     <Compile Include="MyBinFile.cs" />
     <Compile Include="MyFile.cs" />

@@ -17,7 +17,7 @@ namespace Lesson_5
         {
             if (!File.Exists(fullpath))
             {
-                using (file = new FileStream(namefile, FileMode.CreateNew))
+                using (file = new FileStream(namefile, FileMode.Create))
                 {
                     Console.WriteLine($"Файл {namefile} создан по адресу: {fullpath}");
                 }
