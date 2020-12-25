@@ -1,7 +1,6 @@
 ﻿using System;
 using System.IO;
 
-
 namespace Lesson_5
 {
     class DirectoryTree
@@ -31,7 +30,8 @@ namespace Lesson_5
 
         private void AllDirR(DirectoryInfo root)
         {
-            FileInfo[] fileInfos = null;
+            FileInfo[] myfile = null;
+            DirectoryInfo[] mydir = root.GetDirectories();
             string FullPath = fileMethod.GetFullPath(Path, FileName);
             if (!File.Exists(FullPath))
             {
@@ -39,23 +39,22 @@ namespace Lesson_5
             }
             try
             {
-                fileInfos = root.GetFiles();
+                myfile = root.GetFiles("*.*");
             }
-            catch (UnauthorizedAccessException e)
+            catch (UnauthorizedAccessException ex)
             {
-                Console.WriteLine(e.Message);
+                Console.WriteLine(ex.Message);
             }
-            if (fileInfos != null)
+            if (myfile != null)
             {
-                foreach (FileInfo item in fileInfos)
+                foreach (FileInfo item in myfile)
                 {
-                    fileMethod.WriteFile(FullPath, Convert.ToString( item));
-                    //Console.WriteLine(item);
+                    fileMethod.WriteFile(FullPath, Convert.ToString( item.FullName));
                 }
-                DirectoryInfo[] Dir = root.GetDirectories();
-                foreach (DirectoryInfo item in Dir)
+                
+                foreach (DirectoryInfo item in mydir)
                 {
-                    AllDirR(item);
+                     AllDirR(item);
                 }
             }
            
