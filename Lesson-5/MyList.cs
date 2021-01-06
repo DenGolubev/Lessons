@@ -1,5 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 
 
@@ -7,20 +8,19 @@ namespace Lesson_5
 {
     class MyList
     {
-        
+        FileMethod fileMethod = new FileMethod();
+        TaskList taskList = new TaskList();
         private bool Status { get; set; } = false;
         private bool check { get; set; } = false;
         private int counter { get; set; } = 0;
-        
+        private string FullPath { get; set; } = null;
+        private string DoSMS { get; set; } = null;
         string[,] MyArrayList = new string[5, 2];
-        TaskList taskList = new TaskList();
         
-
         public void MyListToDo()
         {
-            taskList.PathName();
             Console.Clear();
-            Console.WriteLine("Добавить в список дел - 1\nУдалить из списка дел - 2\nПосмотреть список дел - 3\nЗакончить работу с программой - 4\n");
+            Console.WriteLine("Добавить в список дел - 1\nУдалить из списка дел - 2\nПосмотреть список дел - 3\nОчистить файл данных - 4\nЗакончить работу с программой - 5\n");
             Console.WriteLine("\nВыберите задачу:");
             int i = 0;
             try
@@ -35,7 +35,7 @@ namespace Lesson_5
             switch (i)
             {
                 case 1:
-                    AddinMyList(check);
+                    AddinMyList();
                     break;
                 case 2:
                     DelfromMyList();
@@ -44,6 +44,9 @@ namespace Lesson_5
                     ArrayList();
                     break;
                 case 4:
+                    DelfromMyList();
+                    break;
+                case 5:
                     Environment.Exit(0);
                     break;
                 default:
@@ -53,50 +56,48 @@ namespace Lesson_5
             }
         }
 
-        private void AddinMyList(bool check)
+        private void AddinMyList()
         {
             Console.Clear();
+            FullPath = fileMethod.GetFullPath(AppContext.BaseDirectory, "TaskList.bin");
             Console.WriteLine($"Добавить задачу:\nВсего задач - {(MyArrayList.GetLength(0) + counter) - MyArrayList.GetLength(0)} / {MyArrayList.GetLength(0)}");
-            string dosms = Console.ReadLine();
+            DoSMS = Console.ReadLine();
+            ConsoleKeyInfo inputKey = Console.ReadKey(true);
             try
             {
-                if (dosms != "")
+                while (inputKey.Key != ConsoleKey.Escape)
                 {
-                    MyArrayList[counter, 0] = dosms;
-                    taskList.Serbinfile(MyArrayList[counter, 0]);
+                    MyArrayList[counter, 0] = DoSMS;
+                    taskList.Serbinfile(MyArrayList, FullPath);
                     counter++;
-                    Console.WriteLine("Задача добавлена");
-                }
-                else if (dosms == "")
-                {
-                    Console.WriteLine("Вы ввели пустою строку");
+                    AddinMyList();
                 }
             }
             catch
             {
-                Console.WriteLine("Вы ввели максимальное число задач");
+                Console.WriteLine($"Вы ввели  {(MyArrayList.GetLength(0) + counter) - MyArrayList.GetLength(0)} / {MyArrayList.GetLength(0)} задач");
+                Console.ReadKey();
             }
-            
-            Console.ReadKey();
             MyListToDo();
-         }
+        }
+        
 
         
 
 
         private void DelfromMyList()
         {
-            //string FullPath = taskList.PathName();
-            //Console.Clear();
-            //Console.WriteLine($"Удалить задачу:\nВыберите номер из списка:");
-            //MyArrayList();
-            //Tasks.RemoveAt(int.Parse(Console.ReadLine()));
+            FullPath = fileMethod.GetFullPath(AppContext.BaseDirectory, "TaskList.bin");
+            taskList.ClearMyTaskList(FullPath);
+            Console.ReadKey();
+            MyListToDo();
         }
 
         public void ArrayList()
         {
+            FullPath = fileMethod.GetFullPath(AppContext.BaseDirectory, "TaskList.bin");
             Console.Clear();
-            Console.WriteLine($"Ваш список дел:\n{taskList.Deserbinfile()}");
+            Console.WriteLine(taskList.Deserbinfile(FullPath));
             Console.ReadKey();
             MyListToDo();
          }

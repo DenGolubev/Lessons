@@ -52,10 +52,10 @@ namespace Lesson_5
             return newList;
         }
 
-        public void Serbinfile(string mysms)
+        public void Serbinfile(object mysms, string fullpath)
         {
             PathName();
-            using (FileStream fileStream = File.Open(FullPath, FileMode.Append))
+            using (FileStream fileStream = File.Open(fullpath, FileMode.Append))
             {
                 binfile.Serialize(fileStream, mysms);
                 fileStream.Close();
@@ -64,9 +64,17 @@ namespace Lesson_5
                 
             
         }
-        public string Deserbinfile()
+
+        public void ClearMyTaskList(string fullpath)
         {
-            using (FileStream fileStream = File.Open(FullPath, FileMode.Open))
+            using (FileStream fileStream = File.Open(fullpath, FileMode.Open, FileAccess.ReadWrite))
+            {
+                fileStream.SetLength(0);
+            }
+        }
+        public string Deserbinfile(string fullpath)
+        {
+            using (FileStream fileStream = File.Open(fullpath, FileMode.Append))
             {
                 string newList = (string)binfile.Deserialize(fileStream);
                 fileStream.Close();
@@ -76,5 +84,6 @@ namespace Lesson_5
                 
             
          }
+
     }
 }
