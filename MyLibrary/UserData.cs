@@ -8,14 +8,17 @@ namespace MyLibrary
         public int Age { get; set; }
         public string Career { get; set; }
 
-        public void GetUserData()
+        public UserData(string name, string career, int age)
         {
-            Console.WriteLine("Введите ваше имя");
-            Name = Console.ReadLine();
-            Console.WriteLine("Введите ваш род деятельности");
-            Career = Console.ReadLine();
-            Console.WriteLine("Введите ваш возраст");
-            Age = int.Parse(Console.ReadLine());
-         }
+            Name = name;
+            Age = age;
+            Career = career;
+        }
+
+        public void PrintUser(string greeting, string name, string career, int age)
+        {
+            Console.WriteLine($"{greeting}\n {name}, Ваш возраст {age} и вы по профессии {career}");
+            Console.ReadKey();
+        }
     }
 }
