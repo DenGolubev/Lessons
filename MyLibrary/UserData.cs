@@ -15,10 +15,5 @@ namespace MyLibrary
             Career = career;
         }
 
-        public void PrintUser(string greeting, string name, string career, int age)
-        {
-            Console.WriteLine($"{greeting}\n {name}, Ваш возраст {age} и вы по профессии {career}");
-            Console.ReadKey();
-        }
     }
 }
