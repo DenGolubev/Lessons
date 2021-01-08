@@ -13,7 +13,7 @@ namespace Lesson_8
             Console.WriteLine(greeting);
             if (string.IsNullOrEmpty(Properties.Settings.Default.UserName) || string.IsNullOrEmpty(Properties.Settings.Default.UserCareer))
             {
-                var prop = UserData();
+                var prop = setUserData();
                 UserData newUser = new UserData(prop.Item1, prop.Item2, prop.Item3);
                 PrintUserData(newUser.Name, newUser.Career, newUser.Age);
             }
@@ -26,7 +26,7 @@ namespace Lesson_8
 
         }
 
-        public static (string, string, int) UserData()
+        public static (string, string, int) setUserData()
         {
             Console.WriteLine("Введите ваше имя");
             string name = Console.ReadLine();
